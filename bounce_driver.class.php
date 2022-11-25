@@ -633,10 +633,12 @@ class BounceHandler{
     function format_status_code($code) {
         $ret = "";
         if(preg_match('/([245]\.[01234567]\.\d{1,2})\s*(.*)/', $code, $matches)) {
+            $ret = array();
             $ret['code'] = $matches[1];
             $ret['text'] = $matches[2];
         }
         else if(preg_match('/([245])([01234567])(\d{1,2})\s*(.*)/', $code, $matches)) {
+            $ret = array();
             $ret['code'] = $matches[1]. '.'. $matches[2]. '.'. $matches[3];
             $ret['text'] = $matches[4];
         }
